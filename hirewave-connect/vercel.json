@@ -1,12 +1,11 @@
-cat > hirewave-connect/vercel.json << 'EOF'
+cat > vercel.json << 'EOF'
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "vite build",
   "installCommand": "bun install",
   "outputDirectory": "dist/client",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
 EOF
